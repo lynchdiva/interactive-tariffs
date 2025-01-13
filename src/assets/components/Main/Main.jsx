@@ -28,7 +28,11 @@ const cardsData = [
 export default function Main() {
   const [selectedTariff, setSelectedTariff] = useState(0);
   const handleChoose = tariff => {
-    setSelectedTariff(tariff);
+    if (tariff === selectedTariff) {
+      setSelectedTariff(0);
+    } else {
+      setSelectedTariff(tariff);
+    }
   };
 
   return (
