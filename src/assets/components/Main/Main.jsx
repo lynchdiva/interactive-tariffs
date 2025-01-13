@@ -26,10 +26,9 @@ const cardsData = [
 ];
 
 export default function Main() {
-  const [currentTariff, setCurrentTariff] = useState(0);
-  const handleChoose = e => {
-    const tariff = +e.currentTarget.id;
-    setCurrentTariff(tariff);
+  const [selectedTariff, setSelectedTariff] = useState(0);
+  const handleChoose = tariff => {
+    setSelectedTariff(tariff);
   };
 
   return (
@@ -41,8 +40,8 @@ export default function Main() {
             color={cardData.color}
             tariff={cardData.tariff}
             speed={cardData.speed}
-            choose={handleChoose}
-            currentTariff={currentTariff}
+            onSelect={handleChoose}
+            selectedTariff={selectedTariff}
           />
         ))}
       </section>
